@@ -1,5 +1,6 @@
 export const mainTheme = {
     colors: {
+        white:"#FFF",
         dark: "#1C1C1C",
         blue: "#0D6EFD",
         blue100: "#E3F0FF",
@@ -8,7 +9,7 @@ export const mainTheme = {
         orange: "#FF9017",
         orange100: "#FFE6BF",
         red: "#FA3434",
-        gary: {
+        gray: {
             gray600: "#505050",
             gray500: "#8B96A5",
             gray400: "#BBBCBE",
