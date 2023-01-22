@@ -56,14 +56,12 @@ const styleBasedOnSize = (size, theme) => {
                 border-radius: 8px;
                 ${fontBasedOnSize(size, theme)}
             `
-            break;
         default:
             padding = 7
             return `
                 border-radius: 6px;
                 ${fontBasedOnSize(size, theme)}
             `
-            break;
     }
 }
 
@@ -84,13 +82,11 @@ const fontBasedOnSize = (size, theme) => {
                 ${theme.fonts.h6.size}
                 ${theme.fonts.h6.height}
             `
-            break;
         default:
             return `
                 ${theme.fonts.body2.size}
                 ${theme.fonts.body2.height}
             `
-            break;
     }
 }
 
@@ -104,7 +100,6 @@ const styleBasedOnIcon = (icon, iconRight) => {
             grid-gap: 10px;
         `
     } else if (icon) {
-        console.log({ padding })
         return `
             padding: ${padding}px ${padding * 2}px ${padding}px  ${padding * 1.5}px;
             display: grid;
