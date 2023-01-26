@@ -6,7 +6,6 @@ import CustomLink from '../../components/CustomeLink'
 import Input from '../../components/Input'
 import PasswordInput from '../../components/PasswordInput'
 import PhoneInput from '../../components/PhoneInput'
-import SelectInput from '../../components/SelectInput'
 import { Body1, H3 } from '../../components/Typography'
 import AuthPages from '../../layout/AuthPages'
 import auth from '../../services/auth.service'
@@ -25,7 +24,7 @@ const Signup = () => {
     if (auth.isAuth()) {
       navigate("/");
     }
-  }, []);
+  }, [navigate]);
 
   const handelChange = (e) => {
     setData(prev => ({ ...prev, [e.target.name]: { value: e.target.value, error: "" } }))

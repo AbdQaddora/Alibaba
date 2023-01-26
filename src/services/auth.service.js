@@ -38,6 +38,7 @@ class Auth {
         return false;
     }
 }
+const auth = new Auth();
 
-export default new Auth();
+export default auth;
 

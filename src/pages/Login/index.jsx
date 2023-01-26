@@ -30,7 +30,7 @@ const Login = () => {
     if(auth.isAuth()){
       navigate("/");
     }
-  }, []);
+  }, [navigate]);
 
   const handelChange = (e) => {
     setData(prev => ({ ...prev, [e.target.name]: { value: e.target.value, error: "" } }))
@@ -69,7 +69,7 @@ const Login = () => {
           error={data.username.error}
           value={data.username.value}
         />
-        
+
         <PasswordInput
           label={"Password"}
           name={"password"}
