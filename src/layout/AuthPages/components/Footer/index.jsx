@@ -12,7 +12,7 @@ import Style from './style';
 const Footer = () => {
     return (
         <Style>
-            <div className='images'>
+            <div className='visa'>
                 <img src={visa1} alt="visa1" />
                 <img src={visa2} alt="visa2" />
                 <img src={visa3} alt="visa3" />
