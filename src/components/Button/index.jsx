@@ -1,7 +1,6 @@
 import React from 'react'
 import { MyButton, SecondaryMyButton } from './style'
 const Button = ({ children, varient, iconRight, icon, ...rest }) => {
-    
     if (varient === 'secondary') {
         return (
             <SecondaryMyButton {...rest}

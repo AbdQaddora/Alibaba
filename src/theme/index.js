@@ -10,12 +10,13 @@ export const mainTheme = {
         orange100: "#FFE6BF",
         red: "#FA3434",
         gray: {
-            gray600: "#505050",
-            gray500: "#8B96A5",
-            gray400: "#BBBCBE",
-            gray300: "#E3E8EE",
-            gray200: "#EFF2F4",
             gray100: "#F7FAFC",
+            gray200: "#EFF2F4",
+            gray300: "#E3E8EE",
+            gray400: "#BBBCBE",
+            gray500: "#8B96A5",
+            gray600: "#505050",
+            gray800: "#606060",
         }
     },
     fonts: {
@@ -27,11 +28,11 @@ export const mainTheme = {
         h2: {
             size: "font-weight: 700; font-size: 3rem;", // 48px
             height: "line-height: 3.625rem;",
-            spacing: "letter-spacing: -1px"
+            spacing: "letter-spacing: -1px;"
         },
         h3: {
             size: "font-weight: 600; font-size: 2rem;", // 32px
-            height: "line-height: 2.43rem",
+            height: "line-height: 2.43rem;",
             spacing: "letter-spacing: -0.2px;"
         },
         h4: {

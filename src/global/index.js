@@ -17,6 +17,12 @@ const GlobalStyle = createGlobalStyle`
     .white{
         color: ${({ theme }) => theme.colors.white};
     }
+
+    .center{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 `;
 
 export default GlobalStyle;

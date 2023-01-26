@@ -12,7 +12,7 @@ const CheckBox = ({ label, value, onChange, name }) => {
                     id={name}
                     name={name}
                     onChange={onChange}
-                    value={value}
+                    checked={value}
                 />
                 <label htmlFor={name}>{label ? label : ""}</label>
             </CheckboxDiv>

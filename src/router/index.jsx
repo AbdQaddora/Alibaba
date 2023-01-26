@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { Routes, Route } from 'react-router-dom';
+import RequiresAuth from './components/RequiresAuth';
 
 // pages
 import Login from '../pages/Login';
@@ -13,8 +14,12 @@ const Router = () => {
             {/* public routes */}
             <Route path='/Login' element={<Login />} />
             <Route path='/signup' element={<Signup />} />
-            
-            <Route path='/' element={<Home />} />
+
+            <Route path='/' element={
+                <RequiresAuth>
+                    <Home />
+                </RequiresAuth>
+            } />
         </Routes>
     )
 }

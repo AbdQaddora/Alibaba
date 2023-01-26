@@ -41,7 +41,11 @@ export const InputLabel = styled.p`
         `line-height: ${props.theme.fonts.body1.height}` +
         `letter-spacing: ${props.theme.fonts.body1.spacing}`
     };
-    text-transform: capitalize;    
+    
+    &::first-letter{
+        text-transform: uppercase;  
+    }
+    
     margin-bottom:5px;
     user-select: none;
 `

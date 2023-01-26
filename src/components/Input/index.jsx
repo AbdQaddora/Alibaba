@@ -1,9 +1,10 @@
 import React from 'react'
 import { Input as MyInput, InputError, InputGroup, InputLabel } from '../common'
 
-const Input = ({ name, label, placeholder, type, onChange, value, error, width }) => {
+const Input = ({ name, label, placeholder, type = "text", onChange, value, error, width, className = "" }) => {
+
     return (
-        <InputGroup>
+        <InputGroup className={className}>
             {label && <InputLabel htmlFor="name">{label}</InputLabel>}
             <MyInput
                 name={name}

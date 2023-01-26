@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 let padding = 7;
 export const MyButton = styled.button`
+    ${props => props.margin ? 'margin: ' + props.margin + ";" : ""}
     outline: none;
     border: none;
     cursor: pointer;
@@ -19,6 +20,7 @@ export const MyButton = styled.button`
         display: flex;
         justify-content: center;
         align-items: center;
+        height: 100%;
         ${props => fontBasedOnSize(props.size, props.theme)}
     }
     
