@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const AuthPagesCountiner = styled.div`
     width: 25% ;
+    padding: 25px 0;
     margin: auto;
     min-height: 100vh;
     display: flex;
