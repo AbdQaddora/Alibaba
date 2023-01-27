@@ -21,7 +21,7 @@ const SelectInput = ({ value, onChange, options, width }) => {
         if (!value) {
             handelSelect(options[0].text);
         }
-    }, []);
+    }, [handelSelect, options, value]);
 
     return (
         <SelectContainer width={width}>
