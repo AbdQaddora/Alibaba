@@ -19,9 +19,11 @@ const SelectInput = ({ value, onChange, options, width }) => {
 
     useEffect(() => {
         if (!value) {
-            handelSelect(options[0].text);
+            if (onChange) {
+                onChange(options[0].text);
+            }
         }
-    }, [handelSelect, options, value]);
+    }, [onChange, options, value]);
 
     return (
         <SelectContainer width={width}>
