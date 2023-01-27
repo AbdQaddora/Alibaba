@@ -24,6 +24,19 @@ class Auth {
         return this.auth;
     }
 
+    signup = async (data, rememberMe = true) => {
+        // !TODO: API CALL data
+        const auth = { userId: "", token: "" };
+        if (rememberMe) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(auth));
+        } else {
+            sessionStorage.setItem(STORAGE_KEY, JSON.stringify(auth));
+        }
+
+        this.auth = auth;
+        return this.auth;
+    }
+
     logout = () => {
         if (localStorage.getItem(STORAGE_KEY)) {
             localStorage.removeItem(STORAGE_KEY);

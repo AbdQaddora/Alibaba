@@ -9,16 +9,24 @@ import PhoneInput from '../../components/PhoneInput'
 import { Body1, H3 } from '../../components/Typography'
 import AuthPages from '../../layout/AuthPages'
 import auth from '../../services/auth.service'
+import signupSchema from '../../validation/signupSchema'
 import Style from './style'
 
 const Signup = () => {
   const navigate = useNavigate();
   const [data, setData] = useState({
-    username: { value: "", error: "" },
-    password: { value: "", error: "" },
+    name: { value: "", error: "" },
+    surname: { value: "", error: "" },
+    email: { value: "", error: "" },
+    phone: {
+      code: "",
+      number: "",
+      error: ""
+    },
+    password1: { value: "", error: "" },
+    password2: { value: "", error: "" },
+    agree: { value: false, error: "" },
   });
-
-  const [rememberMe, setRememberMe] = useState(false);
 
   useEffect(() => {
     if (auth.isAuth()) {
@@ -30,9 +38,43 @@ const Signup = () => {
     setData(prev => ({ ...prev, [e.target.name]: { value: e.target.value, error: "" } }))
   }
 
+  const handelPhoneCodeChange = (code) => {
+    setData(prev => ({ ...prev, phone: { ...prev.phone, code: code, error: "" } }))
+  }
+
+  const handelPhoneNumberChange = (number) => {
+    setData(prev => ({ ...prev, phone: { ...prev.phone, number: number, error: "" } }))
+  }
+
   const handelSubmit = (e) => {
     e.preventDefault();
-
+    signupSchema.validate({
+      name: data.name.value,
+      surname: data.surname.value,
+      email: data.email.value,
+      phoneCode: data.phone.code,
+      phoneNumber: data.phone.number,
+      password1: data.password1.value,
+      password2: data.password2.value,
+      agree: data.agree.value,
+    }, { abortEarly: false })
+      .then(async () => {
+        const result = await auth.signup(data);
+        if (result) {
+          navigate("/");
+        }
+      })
+      .catch((err) => {
+        const tempData = { ...data };
+        err.inner.forEach(({ message, params }) => {
+          if (params.path !== "phoneCode" && params.path !== "phoneNumber") {
+            tempData[params.path].error = message;
+          } else {
+            tempData.phone.error = message
+          }
+        });
+        setData({ ...tempData });
+      });
   }
   return (
     <AuthPages>
@@ -45,8 +87,8 @@ const Signup = () => {
               name={"name"}
               onChange={handelChange}
               placeholder="Type here"
-              error={data.username.error}
-              value={data.username.value}
+              error={data.name.error}
+              value={data.name.value}
             />
 
             <Input
@@ -54,8 +96,8 @@ const Signup = () => {
               name={"surname"}
               onChange={handelChange}
               placeholder="Type here"
-              error={data.username.error}
-              value={data.username.value}
+              error={data.surname.error}
+              value={data.surname.value}
             />
           </div>
 
@@ -65,27 +107,34 @@ const Signup = () => {
             name={"email"}
             onChange={handelChange}
             placeholder="example@mail.com"
-            error={data.username.error}
-            value={data.username.value}
+            error={data.email.error}
+            value={data.email.value}
           />
 
-          <PhoneInput />
+          <PhoneInput
+            onCodeChange={handelPhoneCodeChange}
+            onPhoneChange={handelPhoneNumberChange}
+            codeValue={data.phone.code}
+            phoneValue={data.phone.number}
+            error={data.phone.error}
+          />
+
           <PasswordInput
             label={"Password"}
-            name={"password"}
+            name={"password1"}
             onChange={handelChange}
             placeholder="At least 6 characters."
-            error={data.password.error}
-            value={data.password.value}
+            error={data.password1.error}
+            value={data.password1.value}
           />
 
           <PasswordInput
             label={"Repeat password"}
-            name={"password"}
+            name={"password2"}
             onChange={handelChange}
             placeholder="Type here"
-            error={data.password.error}
-            value={data.password.value}
+            error={data.password2.error}
+            value={data.password2.value}
           />
 
           <Button
@@ -97,8 +146,9 @@ const Signup = () => {
           <CheckBox
             label={<Body1>I agree with <CustomLink to="" color="blue">Terms and Conditions</CustomLink></Body1>}
             name="check"
-            value={rememberMe}
-            onChange={() => { setRememberMe(prev => !prev) }}
+            value={data.agree.value}
+            error={data.agree.error}
+            onChange={() => { setData(prev => ({ ...prev, agree: { value: !prev.agree.value, error: "" } })) }}
           />
 
         </form>

@@ -2,10 +2,10 @@ import React from 'react'
 import { InputGroup } from '../common'
 import { CheckboxDiv } from './style'
 
-const CheckBox = ({ label, value, onChange, name }) => {
+const CheckBox = ({ label, value, onChange, name, error }) => {
     return (
         <InputGroup>
-            <CheckboxDiv>
+            <CheckboxDiv error={error}>
                 <input
                     className="custom-checkbox"
                     type="checkbox"

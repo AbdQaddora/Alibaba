@@ -1,30 +1,32 @@
 import React from 'react'
-import { Input } from '../common'
+import { Input, InputError } from '../common'
 import SelectInput from '../SelectInput'
 import Style from './style'
 
-const PhoneInput = () => {
-    const handelChange = () => {
-
-    }
-    
+const PhoneInput = ({ onCodeChange, codeValue, onPhoneChange, phoneValue, error }) => {
     return (
-        <Style>
-            <SelectInput options={[
-                { text: "+972", value: "1" },
-                { text: "+971", value: "2" },
-                { text: "+970", value: "3" },
-            ]} />
+        <>
+            <Style error={error}>
+                <SelectInput options={[
+                    { text: "+972", value: "+972" },
+                    { text: "+971", value: "+971" },
+                    { text: "+970", value: "+970" },
+                ]}
+                    onChange={onCodeChange}
+                    value={codeValue}
+                />
 
-            <Input
-                label={"Phone "}
-                name={"email"}
-                onChange={handelChange}
-                placeholder="00-000-00-00"
-            // error={data.username.error}
-            // value={data.username.value}
-            />
-        </Style>
+                <Input
+                    label={"Phone "}
+                    name={"email"}
+                    onChange={(e) => { onPhoneChange(e.target.value) }}
+                    placeholder="00-000-00-00"
+                    value={phoneValue}
+                />
+
+            </Style>
+            {error && <InputError>{error}</InputError>}
+        </>
     )
 }
 

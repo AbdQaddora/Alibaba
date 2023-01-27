@@ -30,7 +30,7 @@ export const CheckboxDiv = styled.div`
         height: 20px;
         flex-shrink: 0;
         flex-grow: 0;
-        border: 2px solid #BDBDBD;
+        border: 2px solid ${props => props.error ? props.theme.colors.red : "#BDBDBD"};
         border-radius: 5px;
 
         margin-right: 0.5em;

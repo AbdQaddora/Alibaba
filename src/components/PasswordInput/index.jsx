@@ -27,7 +27,6 @@ const PasswordInput = ({ name, label, placeholder, onChange, value, error, width
                     onFocus={() => { setIsFocuse(true) }}
                     onBlur={() => { setIsFocuse(false) }}
                     name={name}
-                    id={name}
                     placeholder={placeholder || ""}
                     onChange={onChange}
                     type={isInputTypePassword ? "password" : "text"}
