@@ -3,6 +3,7 @@ import styled from "styled-components";
 let padding = 7;
 export const MyButton = styled.button`
     ${props => props.margin ? 'margin: ' + props.margin + ";" : ""}
+    
     outline: none;
     border: none;
     cursor: pointer;

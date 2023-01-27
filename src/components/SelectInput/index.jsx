@@ -16,7 +16,7 @@ const SelectInput = ({ value, onChange, options, width }) => {
         }
         setShowOptions(false)
     }
-
+    console.log({options})
     useEffect(() => {
         if (!value) {
             if (onChange) {
