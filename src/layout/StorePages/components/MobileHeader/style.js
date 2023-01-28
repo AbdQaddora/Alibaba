@@ -20,6 +20,10 @@ const Style = styled.div`
             background-color: ${props => props.theme.colors.gray.gray100};
         }
     }
+
+    .row-3{
+        margin-top: 12px;
+    }
 `
 
 export default Style;

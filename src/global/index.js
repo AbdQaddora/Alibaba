@@ -23,6 +23,7 @@ const GlobalStyle = createGlobalStyle`
         justify-content: center;
         align-items: center;
     }
+
 `;
 
 export default GlobalStyle;

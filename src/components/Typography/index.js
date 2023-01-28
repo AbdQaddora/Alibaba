@@ -6,6 +6,7 @@ const Typography = (props) => {
         ${props.align ? "text-align: " + props.align + ";" : ""}
         ${props.padding ? "padding: " + props.padding + ";" : ""}
         ${props.weight ? "font-weight: " + props.weight + ";" : ""}
+        ${props.transform ? "text-transform: " + props.transform + ";" : ""}
         `
     return result;
 }
@@ -34,7 +35,6 @@ const getColorsFromTheme = (color, theme) => {
 }
 
 export const H1 = styled.h1`
-
     ${props => props.theme.fonts.h1.size}
     ${props => props.height ? `line-height: ${props.spacing}px;` : props.theme.fonts.h1.height}
     ${props => props.spacing ? `letter-spacing: ${props.spacing}px;` : props.theme.fonts.h1.spacing}

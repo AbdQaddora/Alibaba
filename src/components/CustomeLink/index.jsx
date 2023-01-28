@@ -14,12 +14,12 @@ const LinkSpan = styled(Span)`
   }
 `;
 
-const CustomLink = ({ to, children, ...rest }) => {
-    return <LinkSpan {...rest}>
-        <Link to={to}>
-            {children}
-        </Link>
-    </LinkSpan>
+const CustomLink = ({ to, className = "", children, ...rest }) => {
+  return <LinkSpan className={className} {...rest}>
+    <Link to={to}>
+      {children}
+    </Link>
+  </LinkSpan>
 }
 
 export default CustomLink;
