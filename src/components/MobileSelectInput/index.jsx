@@ -1,14 +1,8 @@
 import React from 'react'
 import CustomSwiper from '../CustomSwiper'
 import { Body1 } from '../Typography'
-import { SelectContainer, SelectOption } from './style'
+import { SelectOption } from './style'
 
-/*
- {
-    breakPoint: number,
-    slidesPerView: number
-}
-*/
 const MobileSelectInput = ({ value, onChange, options, className = "" }) => {
     return (
         <div className={className}>

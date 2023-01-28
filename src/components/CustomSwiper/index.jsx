@@ -48,7 +48,7 @@ const CustomSwiper = ({
                 setNumberOfSlides(slidesPerView);
             }
         }
-    }, [numberOfSlides])
+    }, [numberOfSlides , breakPoints , slidesPerView])
 
     if (!numberOfSlides) {
         return <></>
