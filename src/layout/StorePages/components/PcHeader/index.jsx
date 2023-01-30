@@ -1,7 +1,7 @@
 import React from 'react'
 import Style from './style'
 import full_logo from '../../../../assets/images/full_logo.png'
-import Container from '../../../../components/Container/style';
+import Container from '../../../../components/Container';
 
 import Input from '../../../../components/Input'
 import Button from '../../../../components/Button'

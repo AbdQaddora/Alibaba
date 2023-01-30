@@ -28,7 +28,6 @@ const CustomSwiper = ({
             })
 
             const changeNumberOfSlidesBasedOnBreakPoints = () => {
-                console.log({ numberOfSlides })
                 breakPointsSorted.forEach(point => {
                     if (window.innerWidth < point.breakPoint) {
                         setNumberOfSlides(point.slidesPerView + 0.1)

@@ -3,10 +3,11 @@ import Footer from './components/Footer'
 import Subscribe from './components/Subscribe'
 import PcHeader from './components/PcHeader'
 import PcNav from './components/PcNav'
-import Container from '../../components/Container/style'
+import Container from '../../components/Container'
 import MobileHeader from './components/MobileHeader'
 import OnlyMobile from '../../components/OnlyMobile'
 import NotMobile from '../../components/NotMobile'
+import Copyright from './components/Copyright'
 
 const StorePages = ({ children }) => {
     return (
@@ -22,7 +23,11 @@ const StorePages = ({ children }) => {
                 {children}
             </Container>
             <Subscribe />
-            <Footer />
+            <NotMobile>
+                <Footer />
+            </NotMobile>
+
+            <Copyright />
         </>
     )
 }

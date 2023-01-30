@@ -4,7 +4,7 @@ export const SelectContainer = styled.div`
     cursor: pointer;
     position: relative;
     width: ${props => props.width ? props.width : "100%"};
-    ${props => props.noBordered ? "" : `
+    ${props => props.noBorder ? "" : `
         border: 1px solid ${props.theme.colors.gray.gray300};
         border-radius: 6px;
     `}
@@ -35,9 +35,10 @@ export const SelectOptionsContainer = styled.div`
     background-color:${props => props.theme.colors.white};
 `
 
-export const SelectOption = styled.option`
+export const SelectOption = styled.div`
     padding: 8px;
     user-select: none;
+
     &:hover{
         background-color: ${props => props.theme.colors.gray.gray300};
     }

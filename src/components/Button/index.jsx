@@ -1,11 +1,12 @@
 import React from 'react'
 import { MyButton, SecondaryMyButton } from './style'
-const Button = ({ children, varient, iconRight, icon, ...rest }) => {
+const Button = ({ children, varient, size = "small", iconRight, icon, ...rest }) => {
     if (varient === 'secondary') {
         return (
             <SecondaryMyButton {...rest}
                 icon={icon}
                 iconRight={iconRight}
+                size={size}
             >
                 {(!iconRight && icon) && <span className='icon'>{icon}</span>}
                 {children}
@@ -18,6 +19,7 @@ const Button = ({ children, varient, iconRight, icon, ...rest }) => {
         <MyButton {...rest}
             icon={icon}
             iconRight={iconRight}
+            size={size}
         >
             {(!iconRight && icon) && <span className='icon'>{icon}</span>}
             {children}

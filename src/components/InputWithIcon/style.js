@@ -6,6 +6,7 @@ const Style = styled.div`
     align-items: center;
     border: 1px solid ${props => props.theme.colors.gray.gray300};
     border-radius: 4px;
+    ${props => props.background ? "background-color:" + props.background + ";" : ""}
 
     .icon{
         display: flex;

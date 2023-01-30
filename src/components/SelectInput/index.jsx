@@ -3,7 +3,7 @@ import { AiOutlineDown } from 'react-icons/ai';
 import { Body1 } from '../Typography';
 import { SelectContainer, SelectOption, SelectOptionsContainer, SelectTrigger } from './style'
 
-const SelectInput = ({ value, onChange, options, width }) => {
+const SelectInput = ({ className = "", value, onChange, options, width, noBorder }) => {
     const [showOptions, setShowOptions] = useState(false);
 
     const toggleSelect = () => {
@@ -16,7 +16,7 @@ const SelectInput = ({ value, onChange, options, width }) => {
         }
         setShowOptions(false)
     }
-    console.log({options})
+
     useEffect(() => {
         if (!value) {
             if (onChange) {
@@ -26,7 +26,7 @@ const SelectInput = ({ value, onChange, options, width }) => {
     }, [onChange, options, value]);
 
     return (
-        <SelectContainer width={width}>
+        <SelectContainer className={className} width={width} noBorder={noBorder}>
             <SelectTrigger onClick={toggleSelect}>
                 <Body1 color='dark'>{value ? value : options[0].text}</Body1>
                 <Body1 color='gray/500'>

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 // components
 import TransparentButton from '../../../../components/TransparentButton'
 import CustomeLink from '../../../../components/CustomeLink';
-import Container from '../../../../components/Container/style';
+import Container from '../../../../components/Container';
 import InputWithIcon from '../../../../components/InputWithIcon';
 
 // images
