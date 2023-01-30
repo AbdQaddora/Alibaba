@@ -23,19 +23,19 @@ const Footer = () => {
                     <img src={fullLogo} alt="logo" />
                     <Body1 color='gray/600'>Best information about the company gies here but now lorem ipsum is</Body1>
                     <div>
-                        <a href="" className='social_icon'>
+                        <a href="https://www.facebook.com/" className='social_icon'>
                             <ImFacebook />
                         </a>
-                        <a href="" className='social_icon'>
+                        <a href="http://twitter.com/" className='social_icon'>
                             <BsTwitter />
                         </a>
-                        <a href="" className='social_icon'>
+                        <a href="https://www.linkedin.com/" className='social_icon'>
                             <TfiLinkedin />
                         </a>
-                        <a href="" className='social_icon'>
+                        <a href="https://www.instagram.com/" className='social_icon'>
                             <RiInstagramFill />
                         </a>
-                        <a href="" className='social_icon'>
+                        <a href="https://www.youtube.com/" className='social_icon'>
                             <AiFillYoutube />
                         </a>
                     </div>
