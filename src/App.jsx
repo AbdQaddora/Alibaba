@@ -1,5 +1,6 @@
 import { ThemeProvider } from "styled-components";
 import Router from "./router";
+import IsMobileProvider from "./context/IsMobile";
 // themes
 import { mainTheme } from "./theme";
 
@@ -10,8 +11,10 @@ function App() {
   return (
     <div className="App">
       <ThemeProvider theme={mainTheme}>
-        <GlobalStyle />
-        <Router />
+        <IsMobileProvider>
+          <GlobalStyle />
+          <Router />
+        </IsMobileProvider>
       </ThemeProvider>
     </div>
   );

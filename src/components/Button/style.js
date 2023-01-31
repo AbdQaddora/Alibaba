@@ -12,7 +12,7 @@ export const MyButton = styled.button`
     color: ${props => props.theme.colors.white};
     background: ${props => props.background ? props.background : props.theme.colors.blue};
     width: ${props => props.fullWidth ? "100%" : "fit-content"};
-    
+    ${props => console.log(props.fullWidth)}
     ${props => styleBasedOnSize(props.size, props.theme)}
     ${props => styleBasedOnIcon(props.icon, props.iconRight)}
 
@@ -32,7 +32,7 @@ export const MyButton = styled.button`
 `
 
 export const SecondaryMyButton = styled(MyButton)`
-    background-color: transparent;
+    background-color: ${props => props.theme.colors.white};
     color:${props => props.theme.colors.blue};
     border: 1px solid ${props => props.theme.colors.gray.gray400};
 `
