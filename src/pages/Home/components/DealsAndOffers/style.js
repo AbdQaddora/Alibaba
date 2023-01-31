@@ -15,9 +15,11 @@ const Style = styled.div`
     }
 
     .info__section{
+        width: 30%;
         border-right: 1px solid ${props => props.theme.colors.gray.gray300};
         padding-inline-end: 60px;
         @media (max-width:920px) {
+            width: 100%;
             border-right: 1px solid transparent;
             padding-inline-end: 0;
             display: flex;
@@ -33,9 +35,11 @@ const Style = styled.div`
     }
 
     .cards{
+        width: 70%;
         padding-inline-start: 30px !important;
         @media (max-width:920px) {
             padding-inline-start: 0 !important;
+            width: 100%;
         }
         display: flex;
         gap: 20px;

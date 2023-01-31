@@ -1,18 +1,22 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-    padding: 10px 130px;
+    width: 80%;
+    max-width: 1200px;
+    margin: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
 
     @media screen and (max-width:1200px){
-        padding: 10px 70px;
-    }
+        width: 85%;  
+      }
 
     @media screen and (max-width:1000px){
-        padding: 10px 30px;
+        width: 90%;  
     }
 
     @media screen and (max-width:720px){
-        padding: 10px 16px;
+        width: 95%;      
     }
 `
 
