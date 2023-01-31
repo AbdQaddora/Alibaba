@@ -21,6 +21,10 @@ const ImageCardContainer = styled.div`
             background-color: ${props => props.theme.colors.blue100};
         }
     }
+
+    @media screen and (max-width:920px){
+        padding:40px 18px;
+    }
 `
 
 export default ImageCardContainer;

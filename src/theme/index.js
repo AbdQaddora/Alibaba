@@ -9,6 +9,7 @@ export const mainTheme = {
         orange: "#FF9017",
         orange100: "#FFE6BF",
         red: "#FA3434",
+        red100: "#FFE3E3",
         gray: {
             gray100: "#F7FAFC",
             gray200: "#EFF2F4",
