@@ -12,6 +12,8 @@ import consumer_electronics_and_gadgets from '../../assets/images/home/consumer_
 // mock
 import { HOME_AND_OUTDOOR_SECTION } from '../../mock'
 import RecommendedItems from './components/RecommendedItems'
+import ExtraServices from './components/ExtraServices'
+import Suppliers from './components/Suppliers'
 
 const Home = () => {
 
@@ -29,6 +31,8 @@ const Home = () => {
                 cards={HOME_AND_OUTDOOR_SECTION} />
             <SendQuote />
             <RecommendedItems />
+            <ExtraServices />
+            <Suppliers />
         </StorePages>
     )
 }
