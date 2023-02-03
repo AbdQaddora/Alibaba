@@ -7,17 +7,31 @@ import RequiresAuth from './components/RequiresAuth';
 import Login from '../pages/Login';
 import Signup from '../pages/Signup';
 import Home from '../pages/Home';
+import StoreList from '../pages/StoreList';
+
+export const PATHS = {
+    HOME: "/",
+    LOGIN: "/Login",
+    SIGNUP: "/signup",
+    STORE_LIST: "/store-list",
+}
 
 const Router = () => {
     return (
         <Routes>
             {/* public routes */}
-            <Route path='/Login' element={<Login />} />
-            <Route path='/signup' element={<Signup />} />
+            <Route path={PATHS.LOGIN} element={<Login />} />
+            <Route path={PATHS.SIGNUP} element={<Signup />} />
 
-            <Route path='/' element={
+            <Route path={PATHS.HOME} element={
                 <RequiresAuth>
                     <Home />
+                </RequiresAuth>
+            } />
+
+            <Route path={PATHS.STORE_LIST} element={
+                <RequiresAuth>
+                    <StoreList />
                 </RequiresAuth>
             } />
         </Routes>

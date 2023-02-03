@@ -1,13 +1,14 @@
 import React from 'react'
 import { Input } from '../common'
+import TransparentButton from '../TransparentButton'
 import Style from './style'
 
-const InputWithIcon = ({ onChange, value, background, icon, className = "", ...rest }) => {
+const InputWithIcon = ({ onChange, value, background, icon, onIconClick = () => { }, className = "", ...rest }) => {
     return (
         <Style className={className} background={background}>
-            <div className='icon'>
+            <TransparentButton className='icon' onClick={onIconClick}>
                 <img src={icon} alt="icon" />
-            </div>
+            </TransparentButton>
             <Input onChange={onChange} value={value} {...rest} />
         </Style>
     )

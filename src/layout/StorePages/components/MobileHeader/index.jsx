@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 // components
 import TransparentButton from '../../../../components/TransparentButton'
 import CustomeLink from '../../../../components/CustomeLink';
@@ -16,9 +16,22 @@ import seacrh from '../../../../assets/images/header/seacrh.png'
 import Style from './style'
 import MobileSelectInput from '../../../../components/MobileSelectInput';
 import MobileNav from './MobileNav/inde';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import { PATHS } from '../../../../router';
 const MobileHeader = () => {
-    const [category, setCategory] = useState("all");
     const [isNavOpen, setIsNavOpen] = useState(false);
+    const [searchParams] = useSearchParams();
+    const [categoryValue, setCategoryValue] = useState(searchParams.get("category" || 'all'));
+    const [searchValue, setSearchValue] = useState(searchParams.get("search") || "");
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        handelSubmit({ preventDefault: () => { } });
+    }, [categoryValue]);
+
+    const handelSubmit = () => {
+        navigate(`${PATHS.STORE_LIST}?search=${searchValue}&category=${categoryValue}`)
+    }
 
     const toggleNav = () => {
         setIsNavOpen(prev => !prev);
@@ -52,13 +65,16 @@ const MobileHeader = () => {
                     </div>
                     <div className='row-2'>
                         <InputWithIcon
+                            value={searchValue}
+                            onChange={(e) => setSearchValue(e.target.value)}
                             icon={seacrh}
                             className="search_input"
+                            onIconClick={handelSubmit}
                         />
                     </div>
                     <div className='row-3'>
                         <MobileSelectInput
-                            value={category}
+                            value={categoryValue}
                             options={[
                                 { text: "All category", value: "all" },
                                 { text: "Hot offers", value: "offers" },
@@ -66,7 +82,7 @@ const MobileHeader = () => {
                                 { text: "Projects", value: "projects" },
                                 { text: "Menu item", value: "item" }
                             ]}
-                            onChange={(value) => { setCategory(value) }}
+                            onChange={(value) => { setCategoryValue(value) }}
                         />
                     </div>
                 </Container>

@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import CustomSwiper from '../CustomSwiper'
 import { Body1 } from '../Typography'
 import { SelectOption } from './style'
 
 const MobileSelectInput = ({ value, onChange, options, className = "" }) => {
+
+    useEffect(() => {
+        if (!value) {
+            if (onChange) {
+                onChange(options[0].value);
+            }
+        }
+    }, [onChange, options, value]);
+
     return (
         <div className={className}>
             <CustomSwiper

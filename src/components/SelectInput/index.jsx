@@ -10,6 +10,13 @@ const SelectInput = ({ className = "", value, onChange, options, width, noBorder
         setShowOptions(prev => !prev);
     }
 
+    const getOptionByValue = () => {
+        if (value) {
+            return options.filter(el => el.value === value)[0]?.text;
+        }
+        return options[0].text;
+    }
+
     const handelSelect = (value) => {
         if (onChange) {
             onChange(value);
@@ -20,7 +27,7 @@ const SelectInput = ({ className = "", value, onChange, options, width, noBorder
     useEffect(() => {
         if (!value) {
             if (onChange) {
-                onChange(options[0].text);
+                onChange(options[0].value);
             }
         }
     }, [onChange, options, value]);
@@ -28,7 +35,7 @@ const SelectInput = ({ className = "", value, onChange, options, width, noBorder
     return (
         <SelectContainer className={className} width={width} noBorder={noBorder}>
             <SelectTrigger onClick={toggleSelect}>
-                <Body1 color='dark'>{value ? value : options[0].text}</Body1>
+                <Body1 color='dark'>{getOptionByValue()}</Body1>
                 <Body1 color='gray/500'>
                     <AiOutlineDown />
                 </Body1>
