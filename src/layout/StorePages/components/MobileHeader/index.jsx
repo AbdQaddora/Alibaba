@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 // components
 import TransparentButton from '../../../../components/TransparentButton'
 import CustomeLink from '../../../../components/CustomeLink';
@@ -25,13 +25,15 @@ const MobileHeader = () => {
     const [searchValue, setSearchValue] = useState(searchParams.get("search") || "");
     const navigate = useNavigate();
 
+    const handelSubmit = useCallback(() => {
+        navigate(`${PATHS.STORE_LIST}?search=${searchValue}&category=${categoryValue}`)
+    }, [searchValue, categoryValue, PATHS])
+
     useEffect(() => {
         handelSubmit({ preventDefault: () => { } });
     }, [handelSubmit, categoryValue]);
 
-    const handelSubmit = () => {
-        navigate(`${PATHS.STORE_LIST}?search=${searchValue}&category=${categoryValue}`)
-    }
+
 
     const toggleNav = () => {
         setIsNavOpen(prev => !prev);
