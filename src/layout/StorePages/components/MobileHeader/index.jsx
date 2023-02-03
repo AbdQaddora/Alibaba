@@ -24,7 +24,7 @@ const MobileHeader = () => {
     const [categoryValue, setCategoryValue] = useState(searchParams.get("category" || 'all'));
     const [searchValue, setSearchValue] = useState(searchParams.get("search") || "");
 
-    const navigate = useMemo(useNavigate() , []);
+    const navigate = useMemo(() => useNavigate() , []);
 
     const handelSubmit = useCallback(() => {
         navigate(`${PATHS.STORE_LIST}?search=${searchValue}&category=${categoryValue}`)
