@@ -23,11 +23,12 @@ const MobileHeader = () => {
     const [searchParams] = useSearchParams();
     const [categoryValue, setCategoryValue] = useState(searchParams.get("category" || 'all'));
     const [searchValue, setSearchValue] = useState(searchParams.get("search") || "");
-    const navigate = useNavigate();
+
+    const navigate = useMemeo(useNavigate());
 
     const handelSubmit = useCallback(() => {
         navigate(`${PATHS.STORE_LIST}?search=${searchValue}&category=${categoryValue}`)
-    }, [searchValue, categoryValue, PATHS])
+    }, [searchValue, categoryValue, PATHS, navigate])
 
     useEffect(() => {
         handelSubmit({ preventDefault: () => { } });
