@@ -26,7 +26,7 @@ const PcHeader = () => {
     const handelSubmit = useCallback((e) => {
         e.preventDefault();
         navigate(`${PATHS.STORE_LIST}?search=${searchValue}&category=${categoryValue}`)
-    }, [PATHS, searchValue, categoryValue, navigate])
+    }, [searchValue, categoryValue, navigate])
 
     useEffect(() => {
         handelSubmit({ preventDefault: () => { } });

@@ -28,7 +28,7 @@ const MobileHeader = () => {
 
     const handelSubmit = useCallback(() => {
         navigate(`${PATHS.STORE_LIST}?search=${searchValue}&category=${categoryValue}`)
-    }, [searchValue, categoryValue, PATHS, navigate])
+    }, [searchValue, categoryValue, navigate])
 
     useEffect(() => {
         handelSubmit({ preventDefault: () => { } });
