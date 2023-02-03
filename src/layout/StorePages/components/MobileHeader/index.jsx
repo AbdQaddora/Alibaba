@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 // components
 import TransparentButton from '../../../../components/TransparentButton'
 import CustomeLink from '../../../../components/CustomeLink';
@@ -24,7 +24,7 @@ const MobileHeader = () => {
     const [categoryValue, setCategoryValue] = useState(searchParams.get("category" || 'all'));
     const [searchValue, setSearchValue] = useState(searchParams.get("search") || "");
 
-    const navigate = useMemeo(useNavigate());
+    const navigate = useMemo(useNavigate());
 
     const handelSubmit = useCallback(() => {
         navigate(`${PATHS.STORE_LIST}?search=${searchValue}&category=${categoryValue}`)

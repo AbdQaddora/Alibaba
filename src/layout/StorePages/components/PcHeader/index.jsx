@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState, useMemeo } from 'react'
+import React, { useCallback, useEffect, useState, useMemo } from 'react'
 import Style from './style'
 import full_logo from '../../../../assets/images/full_logo.png'
 import Container from '../../../../components/Container';
@@ -21,7 +21,7 @@ const PcHeader = () => {
     const [categoryValue, setCategoryValue] = useState(searchParams.get("category") || "all");
     const [searchValue, setSearchValue] = useState(searchParams.get("search") || "");
 
-    const navigate = useMemeo(useNavigate());
+    const navigate = useMemo(useNavigate());
 
     const handelSubmit = useCallback((e) => {
         e.preventDefault();
