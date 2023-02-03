@@ -7,7 +7,7 @@ import Style from './style'
 
 const StoreList = () => {
   const [keywords, setKeywords] = useState([]);
-  const [priceRange , setPriceRange] = useState();
+  // const [priceRange , setPriceRange] = useState();
   return (
     <StorePages>
       <Style>

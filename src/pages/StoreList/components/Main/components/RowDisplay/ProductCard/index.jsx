@@ -1,7 +1,7 @@
 import React from 'react'
 import CustomLink from '../../../../../../../components/CustomeLink'
 import Rating from '../../../../../../../components/Rating'
-import { Body1, Body3, Span } from '../../../../../../../components/Typography'
+import { Body1,  Span } from '../../../../../../../components/Typography'
 import Style from './style'
 
 const ProductCard = ({ image, name, price, priceBeforeDiscount, rate, id, orders, shipping, description }) => {

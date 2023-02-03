@@ -24,13 +24,13 @@ const PcHeader = () => {
 
     useEffect(() => {
         handelSubmit({ preventDefault: () => { } });
-    }, [categoryValue]);
+    }, [handelSubmit, categoryValue]);
 
     const handelSubmit = (e) => {
         e.preventDefault();
         navigate(`${PATHS.STORE_LIST}?search=${searchValue}&category=${categoryValue}`)
     }
-    
+
     return (
         <Style>
             <Container className="header_container">

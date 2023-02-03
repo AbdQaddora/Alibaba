@@ -10,7 +10,7 @@ const Main = ({ keywords, setKeywords }) => {
   const [products, setProducts] = useState(MockProducts);
   const [displayType, setDisplayType] = useState("row");
   const [pageSize, setPageSize] = useState(9);
-  const [pageNumber, setPageNumber] = useState("row");
+  // const [pageNumber, setPageNumber] = useState("row");
 
   const toggleDisplayType = () => {
     setDisplayType(prev => prev === "row" ? "grid" : "row")
@@ -55,7 +55,7 @@ const Main = ({ keywords, setKeywords }) => {
             { text: "Show All", value: MockProducts.length },
           ]}
         />
-        
+
       </div>
     </Style>
   )

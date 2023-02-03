@@ -27,7 +27,7 @@ const MobileHeader = () => {
 
     useEffect(() => {
         handelSubmit({ preventDefault: () => { } });
-    }, [categoryValue]);
+    }, [handelSubmit, categoryValue]);
 
     const handelSubmit = () => {
         navigate(`${PATHS.STORE_LIST}?search=${searchValue}&category=${categoryValue}`)
