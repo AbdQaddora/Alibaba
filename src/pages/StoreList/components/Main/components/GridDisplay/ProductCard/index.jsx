@@ -16,9 +16,12 @@ const ProductCard = ({ image, name, price, priceBeforeDiscount, rate, id }) => {
                 <div className='product__content__info'>
                     <div>
                         <Body1>${price} <Span color="gray/500" className='price_before_discount'>${priceBeforeDiscount}</Span></Body1>
-                        <Body1 color="orange" className='product__rate'>
-                            <Rating rate={rate} /> {rate * 2}
-                        </Body1>
+                        <div className="rate__container">
+                            <Rating rate={rate} />
+                            <Body1 color="orange" className='product__rate'>
+                                {rate * 2}
+                            </Body1>
+                        </div>
                     </div>
                     <Button className="add_to_cart" varient={'secondary'}>
                         <AiOutlineShoppingCart />

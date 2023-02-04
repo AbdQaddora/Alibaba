@@ -1,10 +1,30 @@
 import React from 'react'
-import Style from './style'
+import Style, { PaginationCell } from './style'
 
-const Pagination = ({active}) => {
+import { GrNext, GrPrevious } from 'react-icons/gr';
+
+const Pagination = ({ activePage, numberOfPages, setActivePage }) => {
+
   return (
     <Style>
-
+      <PaginationCell
+        onClick={() => { setActivePage(prev => prev - 1 >= 0 ? prev - 1 : prev) }}
+      >
+        <GrPrevious />
+      </PaginationCell>
+      {[...Array(numberOfPages)].map((el, index) => {
+        return <PaginationCell
+          className={activePage === index ? "active" : ""}
+          key={index}
+          onClick={() => setActivePage(index)}>
+          {index + 1}
+        </PaginationCell>
+      })}
+      <PaginationCell
+        onClick={() => { setActivePage(prev => prev + 1 < numberOfPages ? prev + 1 : prev) }}
+      >
+        <GrNext />
+      </PaginationCell>
     </Style>
   )
 }

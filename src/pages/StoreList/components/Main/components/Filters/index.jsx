@@ -14,7 +14,7 @@ const Filters = ({ keywords, setKeywords }) => {
 
     return (
         <Style>
-            {keywords.map(keyword => <Tag>
+            {keywords.map(keyword => <Tag key={keyword}>
                 {keyword}
                 <TransparentButton className='delete_btn' onClick={() => { deleteKeyword(keyword) }}>
                     <Span color='gray/500'>X</Span>

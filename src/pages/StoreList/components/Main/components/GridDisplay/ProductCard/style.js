@@ -5,6 +5,10 @@ const Style = styled.div`
     border: 1px solid ${props => props.theme.colors.gray.gray300};
     border-radius: 6px;
 
+    .rate__container{
+        display: flex;
+        gap: 10px;
+    }
     .price_before_discount{
         text-decoration: line-through !important;
     }

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Style = styled.div`
+const Style = styled.p`
     display: flex;
     justify-content: flex-start;
     align-items: center;
