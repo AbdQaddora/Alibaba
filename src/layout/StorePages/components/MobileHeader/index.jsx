@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import React, { useState } from 'react'
 // components
 import TransparentButton from '../../../../components/TransparentButton'
 import CustomeLink from '../../../../components/CustomeLink';
@@ -24,17 +24,11 @@ const MobileHeader = () => {
     const [categoryValue, setCategoryValue] = useState(searchParams.get("category" || 'all'));
     const [searchValue, setSearchValue] = useState(searchParams.get("search") || "");
 
-    const navigate = useMemo(useNavigate, []);
+    const navigate = useNavigate();
 
-    const handelSubmit = useCallback(() => {
+    const handelSubmit = () => {
         navigate(`${PATHS.STORE_LIST}?search=${searchValue}&category=${categoryValue}`)
-    }, [searchValue, categoryValue, navigate])
-
-    useEffect(() => {
-        handelSubmit({ preventDefault: () => { } });
-    }, [handelSubmit, categoryValue]);
-
-
+    }
 
     const toggleNav = () => {
         setIsNavOpen(prev => !prev);
@@ -85,7 +79,7 @@ const MobileHeader = () => {
                                 { text: "Projects", value: "projects" },
                                 { text: "Menu item", value: "item" }
                             ]}
-                            onChange={(value) => { setCategoryValue(value) }}
+                            onChange={setCategoryValue}
                         />
                     </div>
                 </Container>

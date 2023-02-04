@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState, useMemo } from 'react'
+import React, { useState } from 'react'
 import Style from './style'
 import full_logo from '../../../../assets/images/full_logo.png'
 import Container from '../../../../components/Container';
@@ -21,17 +21,12 @@ const PcHeader = () => {
     const [categoryValue, setCategoryValue] = useState(searchParams.get("category") || "all");
     const [searchValue, setSearchValue] = useState(searchParams.get("search") || "");
 
-    const navigate = useMemo(useNavigate, []);
+    const navigate = useNavigate();
 
-    const handelSubmit = useCallback((e) => {
+    const handelSubmit = (e) => {
         e.preventDefault();
         navigate(`${PATHS.STORE_LIST}?search=${searchValue}&category=${categoryValue}`)
-    }, [searchValue, categoryValue, navigate])
-
-    useEffect(() => {
-        handelSubmit({ preventDefault: () => { } });
-    }, [handelSubmit, categoryValue]);
-
+    }
 
     return (
         <Style>
