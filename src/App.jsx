@@ -1,6 +1,10 @@
 import { ThemeProvider } from "styled-components";
 import Router from "./router";
+
+// context
 import IsMobileProvider from "./context/IsMobile";
+import CartContextProvider from "./context/CartContext";
+
 // themes
 import { mainTheme } from "./theme";
 
@@ -12,8 +16,10 @@ function App() {
     <div className="App">
       <ThemeProvider theme={mainTheme}>
         <IsMobileProvider>
-          <GlobalStyle />
-          <Router />
+          <CartContextProvider>
+            <GlobalStyle />
+            <Router />
+          </CartContextProvider>
         </IsMobileProvider>
       </ThemeProvider>
     </div>

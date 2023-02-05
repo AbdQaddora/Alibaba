@@ -1,5 +1,6 @@
 import React from 'react'
 import CustomLink from '../../../../../../../components/CustomeLink'
+import Dot from '../../../../../../../components/Dot'
 import Rating from '../../../../../../../components/Rating'
 import { Body1,  Span } from '../../../../../../../components/Typography'
 import Style from './style'
@@ -20,9 +21,9 @@ const ProductCard = ({ image, name, price, priceBeforeDiscount, rate, id, orders
                         <Rating rate={rate} />
                         <Body1 color='orange'>{rate * 2}</Body1>
                     </div>
-                    <div className='dot' />
+                    <Dot />
                     <Body1 color="gray/500">{orders} orders</Body1>
-                    <div className='dot' />
+                    <Dot />
                     <Body1 color="green">{shipping === "FREE" ? "Free" : "$" + shipping} Shipping</Body1>
                 </div>
                 <Body1 color="gray/600">{description.split(" ").splice(0 , 30).join(" ")}...</Body1>

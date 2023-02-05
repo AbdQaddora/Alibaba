@@ -15,12 +15,14 @@ import orders from '../../../../assets/images/header/PcOrders.png';
 import cart from '../../../../assets/images/header/PcCart.png';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { PATHS } from '../../../../router';
+import { useCartContext } from '../../../../context/CartContext';
 
 const PcHeader = () => {
     const [searchParams] = useSearchParams();
     const [categoryValue, setCategoryValue] = useState(searchParams.get("category") || "all");
     const [searchValue, setSearchValue] = useState(searchParams.get("search") || "");
 
+    const { count } = useCartContext();
     const navigate = useNavigate();
 
     const handelSubmit = (e) => {
@@ -65,9 +67,12 @@ const PcHeader = () => {
                     <CustomeLink to="/orders">
                         <img src={orders} alt="orders" />
                     </CustomeLink>
-                    <CustomeLink to="/cart">
-                        <img src={cart} alt="cart" />
-                    </CustomeLink>
+                    <div className="cart">
+                        <div className="count">{count}</div>
+                        <CustomeLink to="/cart">
+                            <img src={cart} alt="cart" />
+                        </CustomeLink>
+                    </div>
                 </div>
             </Container>
         </Style>

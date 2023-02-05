@@ -5,8 +5,10 @@ import { Body1, Span } from '../../../../../../../components/Typography'
 
 import Style from './style';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { useCartContext } from '../../../../../../../context/CartContext';
 
 const ProductCard = ({ image, name, price, priceBeforeDiscount, rate, id }) => {
+    const { addToCart } = useCartContext();
     return (
         <Style>
             <div className='product__image'>
@@ -23,7 +25,11 @@ const ProductCard = ({ image, name, price, priceBeforeDiscount, rate, id }) => {
                             </Body1>
                         </div>
                     </div>
-                    <Button className="add_to_cart" varient={'secondary'}>
+                    <Button
+                        className="add_to_cart"
+                        varient={'secondary'}
+                        onClick={() => { addToCart(id) }}
+                    >
                         <AiOutlineShoppingCart />
                     </Button>
                 </div>

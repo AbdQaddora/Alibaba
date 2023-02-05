@@ -49,6 +49,24 @@ const Style = styled.div`
             grid-template-columns: 1fr 3fr 1fr;
         }
     }
+
+    .cart{
+        position: relative;
+        padding-top: 4px;
+        .count{
+            pointer-events: none;
+            position: absolute;
+            background-color:${props => props.theme.colors.blue};
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            top: -7px;
+            left: 0px;
+            color:${props => props.theme.colors.blue100}
+        }
+    }
 `
 
 export default Style;

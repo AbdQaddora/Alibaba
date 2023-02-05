@@ -21,13 +21,6 @@ const Style = styled.div`
         gap: 9px;
     }
 
-    .dot{
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background-color: ${props => props.theme.colors.gray.gray300};
-    }
-
     .price_before_discount{
         text-decoration: line-through;
         font-weight: 400px;

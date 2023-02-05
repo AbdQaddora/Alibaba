@@ -5,6 +5,7 @@ const TransparentButton = styled.button`
     border: none;
     background-color: transparent;
     display: contents;
+    cursor: pointer;
 `
 
 export default TransparentButton;

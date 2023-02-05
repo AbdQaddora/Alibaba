@@ -48,6 +48,14 @@ import other8 from '../assets/images/other/8.png';
 import other9 from '../assets/images/other/9.png';
 import other10 from '../assets/images/other/10.png';
 
+import AE from '../assets/images/flags/AE.png';
+import AU from '../assets/images/flags/AU.png';
+import CN from '../assets/images/flags/CN.png';
+import DK from '../assets/images/flags/DK.png';
+import FR from '../assets/images/flags/FR.png';
+import GB from '../assets/images/flags/GB.png';
+import DE from '../assets/images/flags/DE.png';
+
 const images = [
     cloth1, cloth2, cloth3, cloth4, cloth5, cloth6, cloth7,
     book1, book2, book3, book4, book5, book6, book7,
@@ -91,6 +99,13 @@ const getRandomKeywords = () => {
     return keywords[Math.floor(Math.random() * keywords.length)];
 }
 
+const flags = [AE, AU, CN, DK, FR, GB, DE];
+
+
+const getRandomFlag = () => {
+    return flags[Math.floor(Math.random() * flags.length)];
+}
+
 const products = [...Array(IDS.length)].map((el, index) => {
     const price = Math.round(Math.random() * 1000);
     const id = IDS[index];
@@ -101,7 +116,16 @@ const products = [...Array(IDS.length)].map((el, index) => {
         mainImage: getRandomImage(),
         images: [...Array(Math.round(Math.random() * 6))].map(() => getRandomImage()),
         rate: rate,
+        sold: Math.round(Math.random() * 1000),
+        reviews: Math.round(Math.random() * 1000),
         price: price,
+        supplier: {
+            name: "Guanjoi Trading LLC",
+            location: "Germany, Berlin",
+            flag: getRandomFlag(),
+            verified: true,
+            shipper: "Worldwide shipping"
+        },
         orders: Math.ceil(Math.random() * 250),
         shipping: ["FREE", Math.ceil(Math.random() * 250)][Math.floor(Math.random() * 2)],
         priceBeforeDisount: price + Math.round(Math.random() * 100),
@@ -135,7 +159,7 @@ const products = [...Array(IDS.length)].map((el, index) => {
 });
 
 export const getProductById = (id) => {
-    products.find(el => el.id === id);
+    return products.find(el => el.id === id);
 }
 
 export default products;
