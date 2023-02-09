@@ -130,13 +130,13 @@ const products = [...Array(IDS.length)].map((el, index) => {
         shipping: ["FREE", Math.ceil(Math.random() * 250)][Math.floor(Math.random() * 2)],
         priceBeforeDisount: price + Math.round(Math.random() * 100),
         info: {
-            price: "Negotiable",
-            type: "Classic  shoes",
-            material: "Plastic material",
-            design: "Modern nice",
-            customization: "Customized logo and design custom packages",
-            protection: "Refund Policy",
-            warranty: "2 years full warranty"
+            Price: "Negotiable",
+            Type: "Classic  shoes",
+            Material: "Plastic material",
+            Design: "Modern nice",
+            Customization: "Customized logo and design custom packages",
+            Protection: "Refund Policy",
+            Warranty: "2 years full warranty"
         },
         description: `Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
         Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. `,

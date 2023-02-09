@@ -73,7 +73,7 @@ const Header = ({ product }) => {
                     varient="secondary"
                     fullWidth
                     size='medium'
-                    onClick={() => { addToCart(product.id) }}
+                    onClick={() => { addToCart(product) }}
                 ><BsFillCartPlusFill /> Add to cart</Button>
             </div>
         </Style >

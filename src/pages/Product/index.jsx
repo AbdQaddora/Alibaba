@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import RelatedProducts from '../../components/RelatedProducts'
 import StorePages from '../../layout/StorePages'
 import { getProductById } from '../../mock/products'
 import Description from './components/Description'
@@ -28,6 +29,7 @@ const Product = () => {
                         <YouMayLike similar={product.similar} />
                     </div>
                 </Style>
+                <RelatedProducts title={"Related products"} />
             </StorePages>
         )
     }

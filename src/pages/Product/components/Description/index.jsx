@@ -14,7 +14,7 @@ const Description = ({ product }) => {
                         <Body1 color="gray/500">{product.description}</Body1>
                         <div className="description__table">
                             {Object.keys(product.descriptionTable).map(key => {
-                                return <div className="description__table__row">
+                                return <div key={key} className="description__table__row">
                                     <div className="label">{key}</div>
                                     <div className="content">{product.descriptionTable[key]}</div>
                                 </div>

@@ -1,0 +1,42 @@
+import React, { useEffect, useState } from 'react'
+import Button from '../../../../components/Button';
+import NumberSliderInput from '../../../../components/NumberSliderInput';
+import SelectInput from '../../../../components/SelectInput';
+import { Body1, Body2, Span } from '../../../../components/Typography';
+import { useCartContext } from '../../../../context/CartContext';
+import { getProductById } from '../../../../mock/products';
+import Style from './style'
+
+const Card = ({ id, quantity, price, name, mainImage, info }) => {
+  const { removeFromCart, increaseQuantity, decreaseQuantity, setQuantity } = useCartContext();
+
+  return (
+    <Style>
+      <div className="image">
+        <img src={mainImage} alt={name} />
+      </div>
+      <div className="content">
+        <Body1 className="title" weight={500}>{name}</Body1>
+        <Body1 className='info'>
+          {Object.keys(info).map(key => <Span color="gray/500" key={key}>{key}: {info[key]}, </Span>)}
+        </Body1>
+        <Button
+
+          varient="secondary"
+          onClick={() => { removeFromCart(id) }}>
+          <Body2 color="red">Remove</Body2>
+        </Button>
+      </div>
+      <div className="quantity__change">
+        <Body1>${price * quantity}</Body1>
+
+        <NumberSliderInput
+          value={quantity}
+          onNext={() => increaseQuantity(id)} 
+          onPrev={() => decreaseQuantity(id)}/>
+      </div>
+    </Style>
+  )
+}
+
+export default Card
