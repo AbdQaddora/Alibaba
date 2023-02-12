@@ -9,10 +9,6 @@ export const useCartContext = () => {
 
 const CartContextProvider = ({ children }) => {
     const { cart, addToCart, removeFromCart, clearCart, decreaseQuantity, increaseQuantity, setQuantity } = useCartReducer();
-    const getTotal = () => {
-        let total = 0;
-    }
-
     return (
         <CartContext.Provider value={{
             cart,

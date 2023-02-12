@@ -1,6 +1,5 @@
 import React from 'react'
 import { AiOutlineCheck } from 'react-icons/ai'
-import Paper from '../../../../components/Paper'
 import Tabs from '../../../../components/Tabs'
 import { Body1, H1 } from '../../../../components/Typography'
 import Style, { DescriptionStyle } from './style'

@@ -4,7 +4,7 @@ import CustomLink from '../../components/CustomeLink';
 import Divider from '../../components/Divider';
 import Paper from '../../components/Paper';
 import RelatedProducts from '../../components/RelatedProducts';
-import { Body1, H3, H4, H5, Span } from '../../components/Typography';
+import { Body1, H3, H5, Span } from '../../components/Typography';
 import { useCartContext } from '../../context/CartContext'
 import StorePages from '../../layout/StorePages';
 import Card from './components/Card';

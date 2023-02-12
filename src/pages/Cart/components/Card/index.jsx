@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Button from '../../../../components/Button';
 import NumberSliderInput from '../../../../components/NumberSliderInput';
-import SelectInput from '../../../../components/SelectInput';
 import { Body1, Body2, Span } from '../../../../components/Typography';
 import { useCartContext } from '../../../../context/CartContext';
-import { getProductById } from '../../../../mock/products';
 import Style from './style'
 
 const Card = ({ id, quantity, price, name, mainImage, info }) => {
-  const { removeFromCart, increaseQuantity, decreaseQuantity, setQuantity } = useCartContext();
+  const { removeFromCart, increaseQuantity, decreaseQuantity } = useCartContext();
 
   return (
     <Style>

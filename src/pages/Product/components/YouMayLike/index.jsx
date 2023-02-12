@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Paper from '../../../../components/Paper';
-import { Body1, H5 } from '../../../../components/Typography';
+import { Body1 } from '../../../../components/Typography';
 import { getProductById } from '../../../../mock/products';
 import Style from './style'
 
@@ -10,7 +9,7 @@ const YouMayLike = ({ similar }) => {
     useEffect(() => {
         // !TODO: API CALL AND GET THE DTA
         setSimilarProducts(similar.map(id => getProductById(id)))
-    }, []);
+    }, [similar]);
 
     return (
         <Style>
