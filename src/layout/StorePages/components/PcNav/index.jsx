@@ -31,7 +31,7 @@ const PcNav = () => {
             className='select help'
             noBorder={true}
             onChange={() => { }}
-            value={"Help"}
+            value={0}
             options={[
               { text: "Help 1", value: "0" },
               { text: "Help 2", value: "1" },
@@ -54,10 +54,11 @@ const PcNav = () => {
             className='select lang__select'
             noBorder={true}
             onChange={() => { }}
-            value={<img src={DE} alt="DE" />}
+            value={0}
             options={[
-              { text: <img src={AE} alt="AE" />, value: "0" },
-              { text: <img src={US} alt="US" />, value: "1" },
+              { text: <img src={DE} alt="DE" />, value: "0" },
+              { text: <img src={AE} alt="AE" />, value: "1" },
+              { text: <img src={US} alt="US" />, value: "2" },
             ]}
           />
         </div>
