@@ -27,7 +27,7 @@ const Login = () => {
   const [rememberMe, setRememberMe] = useState(false);
 
   useEffect(() => {
-    if(auth.isAuth()){
+    if (auth.isAuth()) {
       navigate("/");
     }
   }, [navigate]);
@@ -83,10 +83,12 @@ const Login = () => {
 
         <CheckBox
           label="Remember me"
-          name="check"
           value={rememberMe}
-          onChange={() => { setRememberMe(prev => !prev) }}
+          onChange={() => {
+            setRememberMe(prev => !prev)
+          }}
         />
+
 
         <Button
           size="medium"

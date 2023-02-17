@@ -145,7 +145,6 @@ const Signup = () => {
 
           <CheckBox
             label={<Body1>I agree with <CustomLink to="" color="blue">Terms and Conditions</CustomLink></Body1>}
-            name="check"
             value={data.agree.value}
             error={data.agree.error}
             onChange={() => { setData(prev => ({ ...prev, agree: { value: !prev.agree.value, error: "" } })) }}
