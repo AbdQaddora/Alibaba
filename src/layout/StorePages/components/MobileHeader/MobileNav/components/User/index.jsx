@@ -1,25 +1,15 @@
-import React, { useEffect, useState } from 'react'
-import Style from './style'
+import React from 'react'
+import { useAuth } from '../../../../../../../context/authContext';
+
 
 import { Body1 } from '../../../../../../../components/Typography';
 
 // images
 import noAvatar from '../../../../../../../assets/images/noAvatar.png';
-
+// style
+import Style from './style'
 const User = () => {
-    const [user, setuser] = useState({
-        name: "",
-        avatar: ""
-    });
-
-    useEffect(() => {
-        // !TODO: get user data from the api via user id
-        setuser({
-            name: "abd qaddora",
-            avatar: ""
-        });
-    }, []);
-
+    const { user } = useAuth();
     return (
         <Style>
             <img src={user.avatar ? user.avatar : noAvatar} alt="avatar" />
