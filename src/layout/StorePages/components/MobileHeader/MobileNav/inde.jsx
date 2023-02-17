@@ -33,7 +33,6 @@ const MobileNav = ({ closeNav, className = "" }) => {
                 </div>
                 <div className='nav__section'>
                     <NavLink onClick={logout} text="logout" />
-
                     <NavLink to="/" text="User agreement" />
                     <NavLink to="/" text="Partnership" />
                     <NavLink to="/" text="Privacy policy" />

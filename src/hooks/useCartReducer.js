@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { useReducer } from 'react'
 
 export const CART_ACTIONS = {
@@ -62,7 +63,30 @@ const useCartReducer = () => {
     const decreaseQuantity = (id, decreaseBy = 1) => dispatch({ type: CART_ACTIONS.DECREASE_QUANTITY, payload: { id, decreaseBy } });
     const setQuantity = (id, quantity) => dispatch({ type: CART_ACTIONS.SET_QUANTITY, payload: { id, quantity } });
 
-    return { cart, addToCart, removeFromCart, clearCart, increaseQuantity, decreaseQuantity, setQuantity };
+    const total = useMemo(() => {
+        return cart.reduce((prev, cur) => prev += cur.price * cur.quantity, 0);
+    }, [cart])
+
+    const totalBeforeDiscount = useMemo(() => {
+        return cart.reduce((prev, cur) => prev += cur.priceBeforeDisount * cur.quantity, 0);
+    }, [cart])
+
+    const totalDiscount = useMemo(() => {
+        return totalBeforeDiscount - total;
+    }, [totalBeforeDiscount, total])
+
+    return {
+        cart,
+        addToCart,
+        removeFromCart,
+        clearCart,
+        increaseQuantity,
+        decreaseQuantity,
+        setQuantity,
+        total,
+        totalDiscount,
+        totalBeforeDiscount
+    };
 }
 
 export default useCartReducer
