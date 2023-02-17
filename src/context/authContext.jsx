@@ -9,7 +9,7 @@ const AuthContext = createContext({});
 export const useAuth = () => { return useContext(AuthContext) };
 
 const AuthContextProvider = ({ children }) => {
-    const [user, setUser] = useState(localStorage.getItem(LOCAL_STORAGE_KEY) || null);
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || null);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState("");
 

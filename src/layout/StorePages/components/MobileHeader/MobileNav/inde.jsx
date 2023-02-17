@@ -2,6 +2,7 @@ import React from 'react'
 import NavLink from './components/NavLink'
 import User from './components/User'
 import { Container, Nav, Overlay } from './style'
+import { useAuth } from '../../../../../context/authContext';
 
 // images
 import about from '../../../../../assets/images/MobileNav/about.png';
@@ -13,6 +14,8 @@ import lang from '../../../../../assets/images/MobileNav/lang.png';
 import orders from '../../../../../assets/images/MobileNav/orders.png';
 
 const MobileNav = ({ closeNav, className = "" }) => {
+    const { logout } = useAuth();
+
     return (
         <Nav className={className}>
             <Container>
@@ -29,6 +32,8 @@ const MobileNav = ({ closeNav, className = "" }) => {
                     <NavLink to="/" text="About" image={about} />
                 </div>
                 <div className='nav__section'>
+                    <NavLink onClick={logout} text="logout" />
+
                     <NavLink to="/" text="User agreement" />
                     <NavLink to="/" text="Partnership" />
                     <NavLink to="/" text="Privacy policy" />
