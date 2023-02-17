@@ -1,4 +1,5 @@
 import React from 'react'
+import { BsFillCartPlusFill } from 'react-icons/bs';
 import Button from '../../components/Button';
 import CustomLink from '../../components/CustomeLink';
 import Divider from '../../components/Divider';
@@ -11,21 +12,28 @@ import Card from './components/Card';
 import Style from './style'
 
 const Cart = () => {
-    const { cart, count, clearCart } = useCartContext();
+    const { cart, count, clearCart, total, totalDiscount, totalBeforeDiscount } = useCartContext();
     return (
         <StorePages>
             <H3 margin="25px 0">My cart ({count})</H3>
             <Style>
                 <Paper className='cards'>
-                    {cart.map(el => <Card key={el.id} {...el} />)}
-                    <div className="bottom">
-                        <CustomLink to="/">
-                            <Button size='medium'>
-                                Back to shop
-                            </Button>
-                        </CustomLink>
-                        <Button size='medium' varient="secondary" onClick={clearCart}>Remove all</Button>
+                    {count === 0 ? <div className="empty_cart">
+                        <BsFillCartPlusFill className='icon' />
+                        <H5>Add some products to cart at first</H5>
                     </div>
+                        : <>
+                            {cart.map(el => <Card key={el.id} {...el} />)}
+                            <div className="bottom">
+                                <CustomLink to="/">
+                                    <Button size='medium'>
+                                        Back to shop
+                                    </Button>
+                                </CustomLink>
+                                <Button size='medium' varient="secondary" onClick={clearCart}>Remove all</Button>
+                            </div>
+                        </>
+                    }
                 </Paper>
 
                 <div className="checkout">
@@ -44,7 +52,7 @@ const Cart = () => {
                                 Subtotal:
                             </Span>
                             <Span color="gray/600">
-                                $1403.97
+                                ${totalBeforeDiscount}
                             </Span>
                         </Body1>
                         <Body1 className="total_info" margin="0 0 5px">
@@ -52,7 +60,7 @@ const Cart = () => {
                                 Discount:
                             </Span>
                             <Span color="red">
-                                - $60.00
+                                - ${totalDiscount}
                             </Span>
                         </Body1>
                         <Body1 className="total_info" margin="0 0 5px">
@@ -60,7 +68,7 @@ const Cart = () => {
                                 Tax:
                             </Span>
                             <Span color="green">
-                                + $14.00
+                                + ${total > 0 ? "14" : "0"}
                             </Span>
                         </Body1>
                         <Divider margin={17} />
@@ -69,7 +77,7 @@ const Cart = () => {
                                 Total:
                             </Span>
                             <Span>
-                                $1357.97
+                                ${total > 0 ? total + 14 : 0}
                             </Span>
                         </H5>
 
@@ -78,7 +86,7 @@ const Cart = () => {
                 </div>
             </Style>
             <RelatedProducts title={"Saved for later"} />
-        </StorePages>
+        </StorePages >
     )
 }
 

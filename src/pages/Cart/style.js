@@ -3,6 +3,19 @@ import styled from "styled-components";
 const Style = styled.div`
     display: flex;
     gap: 15px;
+
+    .empty_cart{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+        .icon{
+            font-size: 100px;
+            margin-bottom: 15px;
+            color: ${props => props.theme.colors.blue};
+        }
+    }
     .cards{
         width: 75%;
     }
