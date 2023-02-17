@@ -16,12 +16,13 @@ import cart from '../../../../assets/images/header/PcCart.png';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { PATHS } from '../../../../router';
 import { useCartContext } from '../../../../context/CartContext';
+import { useAuth } from '../../../../context/authContext';
 
 const PcHeader = () => {
     const [searchParams] = useSearchParams();
     const [categoryValue, setCategoryValue] = useState(searchParams.get("category") || "all");
     const [searchValue, setSearchValue] = useState(searchParams.get("search") || "");
-
+    const { logout } = useAuth();
     const { count } = useCartContext();
     const navigate = useNavigate();
 
@@ -58,9 +59,9 @@ const PcHeader = () => {
                     <Button size="small">Search</Button>
                 </form>
                 <div className='links'>
-                    <CustomeLink to="/profile">
+                    <button className="logout_btn" onClick={logout}>
                         <img src={profile} alt="profile" />
-                    </CustomeLink>
+                    </button>
                     <CustomeLink to="/message">
                         <img src={message} alt="message" />
                     </CustomeLink>

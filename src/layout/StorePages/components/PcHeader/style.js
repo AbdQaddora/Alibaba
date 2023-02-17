@@ -3,6 +3,14 @@ import styled from "styled-components";
 const Style = styled.div`
     background-color: #fff;
     width: 100%;
+
+    .logout_btn{
+        background-color: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+    
     .header_container{
         display: grid;
         grid-template-columns: 1fr 2fr 1fr;
