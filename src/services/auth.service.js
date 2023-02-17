@@ -1,57 +1,54 @@
-const STORAGE_KEY = "ALIBABA_GSG_TASK_AUTH";
+export const BASE_URL = "https://react-tt-api.onrender.com";
+export const LOCAL_STORAGE_KEY = 'ALIBABA_SHOP_LOCAL_STORAGE_KEY';
 
-class Auth {
-    constructor() {
-        if (localStorage.getItem(STORAGE_KEY)) {
-            this.auth = JSON.parse(localStorage.getItem(STORAGE_KEY));
-        } else if (sessionStorage.getItem(STORAGE_KEY)) {
-            this.auth = JSON.parse(sessionStorage.getItem(STORAGE_KEY));
+export const signupService = async (name, email, password, rememberMe = false) => {
+    try {
+        const res = await fetch(`${BASE_URL}/api/users/signup`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name, email, password })
+        })
+        const data = await res.json();
+
+        if (data._id) {
+            if (rememberMe) {
+                localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(data))
+            }
+            return data;
         } else {
-            this.auth = null;
-        }
-    }
-
-    login = async (rememberMe = false) => {
-        // !TODO: API CALL
-        const auth = { userId: "", token: "" };
-        if (rememberMe) {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(auth));
-        } else {
-            sessionStorage.setItem(STORAGE_KEY, JSON.stringify(auth));
+            return { error: data.message }
         }
 
-        this.auth = auth;
-        return this.auth;
-    }
-
-    signup = async (data, rememberMe = true) => {
-        // !TODO: API CALL data
-        const auth = { userId: "", token: "" };
-        if (rememberMe) {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(auth));
-        } else {
-            sessionStorage.setItem(STORAGE_KEY, JSON.stringify(auth));
-        }
-
-        this.auth = auth;
-        return this.auth;
-    }
-
-    logout = () => {
-        if (localStorage.getItem(STORAGE_KEY)) {
-            localStorage.removeItem(STORAGE_KEY);
-        }
-        this.auth = null;
-    }
-
-    isAuth = () => {
-        if (this.auth) {
-            return true;
-        }
-        return false;
+    } catch (err) {
+        return { error: err.message }
     }
 }
-const auth = new Auth();
 
-export default auth;
+export const loginService = async (email, password, rememberMe = false) => {
+    try {
+        const res = await fetch(`${BASE_URL}/api/users/login`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email, password })
+        })
+        const data = await res.json();
+        if (data._id) {
+            if (rememberMe) {
+                localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(data))
+            }
+            return data;
+        } else {
+            return { error: data.message }
+        }
+    } catch (error) {
+        return { error: error.message }
+    }
+}
 
+export const logoutService = () => {
+    localStorage.removeItem(LOCAL_STORAGE_KEY);
+}
